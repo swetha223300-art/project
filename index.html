@@ -1,0 +1,1342 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <title>LUNARA | Timeless Beauty, Made to Shine.</title>
+    <style>
+        :root {
+            --iv: #faf6ef;
+            --bg2: #f1e9da;
+            --ink: #1c1b19;
+            --mut: #6f6a60;
+            --gold: #b8935a;
+            --line: #e6dccb;
+            --serif: "Cormorant Garamond", "Palatino Linotype", Georgia, serif;
+            --sans: "Jost", "Helvetica Neue", Arial, sans-serif
+        }
+
+        * {
+            box-sizing: border-box;
+            margin: 0
+        }
+
+        html {
+            scroll-behavior: smooth
+        }
+
+        body {
+            padding-top: 76px;
+            font: 300 16px/1.7 var(--sans);
+            background: var(--iv);
+            color: var(--ink)
+        }
+
+        h1,
+        h2,
+        h3,
+        .logo {
+            font-family: var(--serif);
+            font-weight: 500;
+            line-height: 1.15
+        }
+
+        h1 {
+            font-size: clamp(2.6rem, 5.4vw, 4.6rem)
+        }
+
+        h2 {
+            font-size: clamp(2rem, 3.2vw, 2.8rem)
+        }
+
+        h3 {
+            font-size: 1.3rem
+        }
+
+        a {
+            color: inherit;
+            text-decoration: none
+        }
+
+        section[id] {
+            scroll-margin-top: 76px
+        }
+
+        .wrap {
+            max-width: 1280px;
+            margin: 0 auto;
+            padding: 0 24px
+        }
+
+        .sec {
+            padding: 96px 0
+        }
+
+        .alt {
+            background: #fff
+        }
+
+        .c {
+            text-align: center
+        }
+
+        .sh {
+            margin-bottom: 48px
+        }
+
+        .sh p {
+            color: var(--mut);
+            max-width: 520px;
+            margin: 10px auto 0
+        }
+
+        .eyebrow {
+            letter-spacing: .25em;
+            text-transform: uppercase;
+            font-size: .72rem;
+            color: var(--gold);
+            display: block;
+            margin-bottom: 12px
+        }
+
+        .btn {
+            display: inline-block;
+            padding: 15px 34px;
+            background: var(--ink);
+            color: #fff;
+            border: 1px solid var(--ink);
+            cursor: pointer;
+            text-transform: uppercase;
+            font: 400 .76rem var(--sans);
+            letter-spacing: .14em;
+            transition: background .35s, color .35s, border-color .35s
+        }
+
+        .btn:hover {
+            background: var(--gold);
+            border-color: var(--gold)
+        }
+
+        .btn.ghost {
+            background: transparent;
+            color: var(--ink)
+        }
+
+        .btn.ghost:hover {
+            background: var(--ink);
+            border-color: var(--ink);
+            color: #fff
+        }
+
+        .btn.light {
+            background: transparent;
+            border-color: #fff;
+            color: #fff
+        }
+
+        .btn.light:hover {
+            background: #fff;
+            color: var(--ink)
+        }
+
+        .hdr {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            z-index: 9999;
+            background: rgba(250, 246, 239, .95);
+            backdrop-filter: blur(10px);
+            border-bottom: 1px solid var(--line)
+        }
+
+        .hrow {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 76px;
+            gap: 20px;
+            position: relative
+        }
+
+        .logo {
+            font-size: 1.9rem;
+            letter-spacing: .35em
+        }
+
+        nav {
+            display: flex;
+            gap: 34px;
+            font-size: .8rem;
+            letter-spacing: .14em;
+            text-transform: uppercase
+        }
+
+        nav a {
+            position: relative;
+            padding: 4px 0
+        }
+
+        nav a:after {
+            content: "";
+            position: absolute;
+            left: 0;
+            bottom: 0;
+            width: 0;
+            height: 1px;
+            background: var(--gold);
+            transition: width .3s
+        }
+
+        nav a:hover:after {
+            width: 100%
+        }
+
+        .icons {
+            display: flex;
+            gap: 20px
+        }
+
+        .icons a {
+            position: relative;
+            display: block
+        }
+
+        .icons img {
+            width: 21px;
+            height: 21px;
+            display: block;
+            transition: opacity .3s
+        }
+
+        .icons a:hover img {
+            opacity: .55
+        }
+
+        .bdg {
+            position: absolute;
+            top: -8px;
+            right: -10px;
+            min-width: 17px;
+            height: 17px;
+            border-radius: 9px;
+            background: var(--gold);
+            color: #fff;
+            font-size: .62rem;
+            line-height: 17px;
+            text-align: center;
+            padding: 0 4px;
+            display: none
+        }
+
+        #mn {
+            display: none
+        }
+
+        .burger {
+            display: none;
+            cursor: pointer;
+            font-size: 1.6rem;
+            line-height: 1
+        }
+
+        .hero {
+            display: grid;
+            grid-template-columns: 1.05fr 1fr;
+            gap: 64px;
+            align-items: center;
+            min-height: 86vh;
+            padding-top: 40px;
+            padding-bottom: 40px
+        }
+
+        .hero p {
+            max-width: 440px;
+            margin: 24px 0 36px;
+            color: var(--mut)
+        }
+
+        .hero .btn+.btn {
+            margin-left: 12px
+        }
+
+        .frame {
+            outline: 1px solid var(--line);
+            outline-offset: 14px;
+            box-shadow: 0 24px 60px rgba(60, 45, 20, .12)
+        }
+
+        .art {
+            display: block;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            background: linear-gradient(135deg, #f6efe2, #e6d6b8)
+        }
+
+        .art.b1 {
+            background: linear-gradient(135deg, #efe4cf, #dbc7a0)
+        }
+
+        .art.b2 {
+            background: linear-gradient(135deg, #fbf8f2, #eadfca)
+        }
+
+        .art.dk {
+            background: linear-gradient(135deg, #3a3226, #201b14)
+        }
+
+        .ar {
+            aspect-ratio: 4/5;
+            overflow: hidden;
+            background: #efe6d6
+        }
+
+        .ar .art {
+            transition: transform .9s
+        }
+
+        .cats {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 28px
+        }
+
+        .cat {
+            background: #fff;
+            border: 1px solid var(--line);
+            transition: box-shadow .4s, transform .4s
+        }
+
+        .cat:hover {
+            box-shadow: 0 18px 40px rgba(60, 45, 20, .1);
+            transform: translateY(-4px)
+        }
+
+        .cat:hover .art {
+            transform: scale(1.05)
+        }
+
+        .cat .ar {
+            aspect-ratio: 1/1
+        }
+
+        .cat div.t {
+            padding: 24px;
+            text-align: center
+        }
+
+        .cat p {
+            color: var(--mut);
+            font-size: .92rem;
+            margin: 6px 0 14px
+        }
+
+        .cat span {
+            font-size: .72rem;
+            letter-spacing: .16em;
+            text-transform: uppercase;
+            border-bottom: 1px solid var(--gold);
+            padding-bottom: 2px
+        }
+
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+            gap: 30px
+        }
+
+        .card {
+            position: relative
+        }
+
+        .card .ar {
+            position: relative
+        }
+
+        .card:hover .art {
+            transform: scale(1.07)
+        }
+
+        .heart {
+            position: absolute;
+            top: 12px;
+            right: 12px;
+            z-index: 2;
+            display: grid;
+            place-items: center;
+            width: 38px;
+            height: 38px;
+            border-radius: 50%;
+            background: rgba(255, 255, 255, .93);
+            border: 0;
+            cursor: pointer;
+            font-size: 1.15rem;
+            color: var(--ink);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, .08);
+            transition: color .3s
+        }
+
+        .heart:hover,
+        .heart.on {
+            color: #a33
+        }
+
+        .ci {
+            padding-top: 16px;
+            text-align: center
+        }
+
+        .ci small {
+            color: var(--gold);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-size: .68rem
+        }
+
+        .ci h3 {
+            margin: 4px 0
+        }
+
+        .pr {
+            margin-bottom: 4px
+        }
+
+        .stars {
+            color: var(--gold);
+            font-size: .85rem;
+            margin-bottom: 14px
+        }
+
+        .stars em {
+            color: var(--mut);
+            font-style: normal
+        }
+
+        .ci .btn {
+            padding: 11px 20px;
+            font-size: .7rem;
+            margin: 0 2px 6px
+        }
+
+        .ed {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px;
+            align-items: center
+        }
+
+        .ed .ar {
+            aspect-ratio: 4/5;
+            box-shadow: 0 24px 60px rgba(60, 45, 20, .12)
+        }
+
+        .ed p {
+            color: var(--mut);
+            margin: 18px 0 32px;
+            max-width: 480px
+        }
+
+        .ed.flip .ar {
+            order: 2
+        }
+
+        .dark {
+            background: #1c1b19;
+            color: #fff
+        }
+
+        .dark p {
+            color: #bdb6a8
+        }
+
+        .dark .ar {
+            box-shadow: none;
+            outline: 1px solid #4a463c;
+            outline-offset: 14px
+        }
+
+        .feat {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 24px
+        }
+
+        .feat div {
+            padding: 40px 26px;
+            border: 1px solid var(--line);
+            text-align: center;
+            background: var(--iv)
+        }
+
+        .feat span {
+            color: var(--gold);
+            font-size: 1.7rem
+        }
+
+        .feat h3 {
+            margin: 10px 0 6px
+        }
+
+        .feat p {
+            color: var(--mut);
+            font-size: .92rem
+        }
+
+        .rvw {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+            gap: 24px
+        }
+
+        .rvw blockquote {
+            background: #fff;
+            padding: 32px;
+            border: 1px solid var(--line);
+            box-shadow: 0 10px 30px rgba(60, 45, 20, .04)
+        }
+
+        .rvw .stars {
+            font-size: 1rem;
+            margin-bottom: 10px
+        }
+
+        .rvw cite {
+            display: block;
+            margin-top: 16px;
+            font-style: normal;
+            font-weight: 400
+        }
+
+        .news {
+            background: var(--bg2);
+            text-align: center
+        }
+
+        .news p {
+            color: var(--mut);
+            margin-top: 8px
+        }
+
+        .news form {
+            display: flex;
+            max-width: 500px;
+            margin: 30px auto 0
+        }
+
+        .news input {
+            flex: 1;
+            min-width: 0;
+            padding: 15px;
+            border: 1px solid var(--line);
+            border-right: 0;
+            background: #fff;
+            font: inherit
+        }
+
+        .three {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 28px;
+            margin-top: 40px
+        }
+
+        .three div {
+            border-top: 1px solid var(--gold);
+            padding-top: 16px
+        }
+
+        .three p {
+            margin: 6px 0 0;
+            font-size: .92rem
+        }
+
+        .contact {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 72px
+        }
+
+        .contact dt {
+            font-size: .72rem;
+            letter-spacing: .2em;
+            text-transform: uppercase;
+            color: var(--gold);
+            margin-top: 22px
+        }
+
+        .contact dd {
+            font-size: 1.05rem
+        }
+
+        .f {
+            display: grid;
+            gap: 14px
+        }
+
+        .f input,
+        .f textarea {
+            width: 100%;
+            padding: 14px;
+            border: 1px solid var(--line);
+            background: #fff;
+            font: inherit;
+            color: inherit
+        }
+
+        .f input:focus,
+        .f textarea:focus,
+        .news input:focus {
+            outline: 1px solid var(--gold)
+        }
+
+        footer {
+            background: #14130f;
+            color: #bdb6a8;
+            padding: 72px 0 28px;
+            font-size: .92rem
+        }
+
+        .fg {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr 1fr 1fr;
+            gap: 40px
+        }
+
+        footer h4 {
+            color: #fff;
+            font: 400 .76rem var(--sans);
+            letter-spacing: .22em;
+            text-transform: uppercase;
+            margin-bottom: 16px
+        }
+
+        footer a {
+            display: block;
+            padding: 3px 0;
+            transition: color .3s
+        }
+
+        footer a:hover {
+            color: var(--gold)
+        }
+
+        footer .logo {
+            color: #fff;
+            font-size: 1.7rem;
+            margin-bottom: 10px
+        }
+
+        .soc a {
+            display: inline-grid;
+            width: 38px;
+            height: 38px;
+            border: 1px solid #4a463c;
+            place-items: center;
+            border-radius: 50%;
+            margin: 0 10px 0 0;
+            font-size: .72rem
+        }
+
+        .copy {
+            border-top: 1px solid #2c2a24;
+            margin-top: 48px;
+            padding-top: 22px;
+            text-align: center;
+            font-size: .8rem
+        }
+
+        /* search bar */
+        #sp {
+            display: none;
+            background: var(--iv);
+            border-bottom: 1px solid var(--line);
+            padding: 22px 0 30px
+        }
+
+        #sp.open {
+            display: block
+        }
+
+        .sbox {
+            display: flex;
+            max-width: 640px;
+            margin: 0 auto;
+            border: 1px solid var(--line);
+            background: #fff
+        }
+
+        .sbox input {
+            flex: 1;
+            min-width: 0;
+            border: 0;
+            padding: 15px 18px;
+            font: inherit;
+            background: transparent;
+            color: inherit
+        }
+
+        .sbox input:focus {
+            outline: 1px solid var(--gold)
+        }
+
+        .sbox button {
+            border: 0;
+            background: none;
+            padding: 0 18px;
+            cursor: pointer;
+            font-size: 1.3rem;
+            color: var(--mut)
+        }
+
+        #sr {
+            margin-top: 26px
+        }
+
+        #sr .grid {
+            grid-template-columns: repeat(auto-fill, minmax(210px, 1fr))
+        }
+
+        .note {
+            text-align: center;
+            color: var(--mut)
+        }
+
+        /* cart + wishlist pages */
+        .page {
+            display: none;
+            min-height: 70vh
+        }
+
+        .page .sh {
+            margin-bottom: 40px
+        }
+
+        .cl {
+            display: grid;
+            grid-template-columns: 1.6fr 1fr;
+            gap: 48px;
+            align-items: start
+        }
+
+        .ci2 {
+            display: grid;
+            grid-template-columns: 96px 1fr auto;
+            gap: 20px;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 1px solid var(--line)
+        }
+
+        .ci2 .ar {
+            aspect-ratio: 1/1;
+            width: 96px
+        }
+
+        .ci2 small {
+            color: var(--gold);
+            letter-spacing: .18em;
+            text-transform: uppercase;
+            font-size: .66rem
+        }
+
+        .ci2 h3 {
+            font-size: 1.2rem
+        }
+
+        .ci2 .rm {
+            background: none;
+            border: 0;
+            border-bottom: 1px solid var(--gold);
+            cursor: pointer;
+            font: inherit;
+            font-size: .72rem;
+            letter-spacing: .14em;
+            text-transform: uppercase;
+            color: var(--mut);
+            margin-top: 6px
+        }
+
+        .qty {
+            display: inline-flex;
+            align-items: center;
+            border: 1px solid var(--line);
+            margin-top: 8px
+        }
+
+        .qty button {
+            width: 34px;
+            height: 34px;
+            border: 0;
+            background: #fff;
+            cursor: pointer;
+            font-size: 1.1rem
+        }
+
+        .qty b {
+            min-width: 34px;
+            text-align: center;
+            font-weight: 400
+        }
+
+        .lt {
+            text-align: right;
+            font-family: var(--serif);
+            font-size: 1.3rem
+        }
+
+        .sum {
+            background: #fff;
+            border: 1px solid var(--line);
+            padding: 32px
+        }
+
+        .sum h3 {
+            margin-bottom: 16px
+        }
+
+        .sum div {
+            display: flex;
+            justify-content: space-between;
+            padding: 8px 0
+        }
+
+        .sum .tot {
+            border-top: 1px solid var(--line);
+            margin-top: 8px;
+            padding-top: 16px;
+            font-size: 1.15rem
+        }
+
+        .sum .btn {
+            width: 100%;
+            margin-top: 18px;
+            text-align: center
+        }
+
+        .sum p {
+            color: var(--mut);
+            font-size: .85rem;
+            margin-top: 12px
+        }
+
+        .empty {
+            text-align: center;
+            padding: 40px 0
+        }
+
+        .empty p {
+            color: var(--mut);
+            margin: 10px 0 28px
+        }
+
+        #toast {
+            position: fixed;
+            left: 50%;
+            bottom: 28px;
+            transform: translate(-50%, 30px);
+            background: var(--ink);
+            color: #fff;
+            padding: 12px 26px;
+            font-size: .8rem;
+            letter-spacing: .1em;
+            opacity: 0;
+            pointer-events: none;
+            transition: .35s;
+            z-index: 99
+        }
+
+        #toast.show {
+            opacity: 1;
+            transform: translate(-50%, 0)
+        }
+
+        @media(max-width:900px) {
+            .burger {
+                display: block;
+                order: -1
+            }
+
+            nav {
+                position: absolute;
+                top: 76px;
+                left: 0;
+                right: 0;
+                background: var(--iv);
+                flex-direction: column;
+                gap: 0;
+                padding: 6px 24px;
+                border-bottom: 1px solid var(--line);
+                display: none
+            }
+
+            nav a {
+                padding: 14px 0
+            }
+
+            #mn:checked~nav {
+                display: flex
+            }
+
+            .logo {
+                font-size: 1.5rem;
+                margin-right: auto
+            }
+
+            .hrow {
+                gap: 16px
+            }
+
+            .hero,
+            .ed,
+            .contact,
+            .cl {
+                grid-template-columns: 1fr;
+                gap: 40px
+            }
+
+            .hero {
+                min-height: 0
+            }
+
+            .ed.flip .ar {
+                order: 0
+            }
+
+            .feat,
+            .fg {
+                grid-template-columns: 1fr 1fr
+            }
+
+            .sec {
+                padding: 72px 0
+            }
+        }
+
+        @media(max-width:560px) {
+            .grid {
+                grid-template-columns: 1fr 1fr;
+                gap: 16px
+            }
+
+            .feat,
+            .fg,
+            .three {
+                grid-template-columns: 1fr
+            }
+
+            .hero .btn {
+                display: block;
+                margin: 0 0 12px !important
+            }
+
+            .news form {
+                flex-direction: column;
+                gap: 10px
+            }
+
+            .news input {
+                border-right: 1px solid var(--line)
+            }
+
+            .cats {
+                grid-template-columns: 1fr
+            }
+
+            .ci .btn {
+                padding: 10px 12px
+            }
+
+            .frame,
+            .dark .ar {
+                outline-offset: 8px
+            }
+
+            .wrap {
+                padding: 0 20px
+            }
+
+            .ci2 {
+                grid-template-columns: 72px 1fr
+            }
+
+            .ci2 .ar {
+                width: 72px
+            }
+
+            .lt {
+                grid-column: 2;
+                text-align: left
+            }
+        }
+
+        @media(prefers-reduced-motion:reduce) {
+            * {
+                scroll-behavior: auto !important;
+                transition: none !important
+            }
+        }
+    </style>
+</head>
+
+<body>
+    <header class="hdr">
+        <div class="wrap hrow"><input type="checkbox" id="mn" aria-label="Toggle menu"><label for="mn"
+                class="burger">☰</label><a class="logo" href="#home">LUNARA</a>
+            <nav><a href="#home">Home</a><a href="#shop">Shop</a><a href="#collections">Collections</a><a
+                    href="#about">About</a><a href="#contact">Contact</a></nav>
+            <div class="icons"><a href="#search" id="sbtn" aria-label="Search"><img
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c1b19' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Ccircle cx='11' cy='11' r='6.5'/%3E%3Cpath d='M16 16l5 5'/%3E%3C/svg%3E"
+                        alt="" width="21" height="21"></a><a href="#wishlist" aria-label="Wishlist"><img
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c1b19' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M12 20s-7-4.6-7-10a4 4 0 0 1 7-2.5A4 4 0 0 1 19 10c0 5.400-7 10-7 10z'/%3E%3C/svg%3E"
+                        alt="" width="21" height="21"><span class="bdg" id="wb"></span></a><a href="#cart"
+                    aria-label="Shopping bag"><img
+                        src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%231c1b19' stroke-width='1.4' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='M5 8h14l-1 12H6z'/%3E%3Cpath d='M9 8V6a3 3 0 0 1 6 0v2'/%3E%3C/svg%3E"
+                        alt="" width="21" height="21"><span class="bdg" id="cb"></span></a></div>
+        </div>
+        <div id="sp">
+            <div class="wrap">
+                <div class="sbox"><input id="si" type="search" placeholder="Search rings, necklaces, pearl, gold…"
+                        aria-label="Search products" autocomplete="off"><button id="sx"
+                        aria-label="Close search">✕</button></div>
+                <div id="sr"></div>
+            </div>
+        </div>
+    </header>
+
+    <main id="main">
+        <section id="home">
+            <div class="wrap hero">
+                <div><span class="eyebrow">LUNARA Fine Jewellery</span>
+                    <h1>Timeless Beauty,<br>Made to Shine.</h1>
+                    <p>Discover jewellery designed to celebrate your most beautiful moments.</p><a class="btn"
+                        href="#collections">Shop Collection</a><a class="btn ghost" href="#shop">Explore New
+                        Arrivals</a>
+                </div>
+                <div class="frame ar" style="aspect-ratio:4/5"><img class="art"
+                        src="C:\Users\swetha\Desktop\python\Lunara Ring and Diamond Emblem.png" alt="Diamond ring"
+                        loading="lazy"></div>
+            </div>
+        </section>
+
+        <section class="sec alt" id="collections">
+            <div class="wrap">
+                <div class="c sh">
+                    <h2>Explore Our Collections</h2>
+                </div>
+                <div class="cats" id="cats"></div>
+            </div>
+        </section>
+
+        <section class="sec" id="shop">
+            <div class="wrap">
+                <div class="c sh">
+                    <h2>New Arrivals</h2>
+                </div>
+                <div class="grid" id="g-new"></div>
+            </div>
+        </section>
+
+        <section class="sec dark">
+            <div class="wrap ed">
+                <div class="ar"><img class="art dk"
+                        src="https://i.pinimg.com/736x/8c/a5/62/8ca562e4a6deca52f289ce36d61002b0.jpg"
+                        alt="Pearl necklace" loading="lazy"></div>
+                <div><span class="eyebrow">The Lunara Story</span>
+                    <h2>Jewellery That Tells Your Story</h2>
+                    <p>Every piece is designed to become part of your most memorable moments.</p><a class="btn light"
+                        href="#about">Discover Lunara</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="wrap">
+                <div class="c sh">
+                    <h2>Our Best Sellers</h2>
+                </div>
+                <div class="grid" id="g-best"></div>
+            </div>
+        </section>
+
+        <section class="sec alt">
+            <div class="wrap">
+                <div class="c sh">
+                    <h2>Why Lunara</h2>
+                </div>
+                <div class="feat">
+                    <div><span>✦</span>
+                        <h3>Premium Craftsmanship</h3>
+                        <p>Every piece is designed with attention to detail.</p>
+                    </div>
+                    <div><span>◇</span>
+                        <h3>Timeless Designs</h3>
+                        <p>Elegant jewellery that never goes out of style.</p>
+                    </div>
+                    <div><span>❖</span>
+                        <h3>Quality Materials</h3>
+                        <p>Thoughtfully selected materials for lasting beauty.</p>
+                    </div>
+                    <div><span>☐</span>
+                        <h3>Beautiful Packaging</h3>
+                        <p>Every Lunara piece arrives beautifully presented.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec">
+            <div class="wrap ed flip">
+                <div class="ar"><img class="art b1"
+                        src="https://i.pinimg.com/736x/48/7a/59/487a598581d7bffe9a1c8cf7335ba589.jpg"
+                        alt="Jewellery set" loading="lazy"></div>
+                <div><span class="eyebrow">Featured Jewellery</span>
+                    <h2>Designed for Your Moments</h2>
+                    <p>From everyday elegance to unforgettable celebrations, Lunara jewellery is made to shine with you.
+                    </p><a class="btn" href="#shop">Shop Now</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec alt">
+            <div class="wrap">
+                <div class="c sh">
+                    <h2>Loved by Our Customers</h2>
+                </div>
+                <div class="rvw">
+                    <blockquote>
+                        <div class="stars">★★★★★</div>“Absolutely beautiful. The jewellery feels premium and the design
+                        is exactly what I wanted.”<cite>— Ananya</cite>
+                    </blockquote>
+                    <blockquote>
+                        <div class="stars">★★★★★</div>“The Luna necklace is even more beautiful in person.”<cite>—
+                            Meera</cite>
+                    </blockquote>
+                    <blockquote>
+                        <div class="stars">★★★★★</div>“Elegant packaging and beautiful craftsmanship.”<cite>—
+                            Riya</cite>
+                    </blockquote>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec news">
+            <div class="wrap">
+                <h2>Stay in the Glow</h2>
+                <p>Be the first to discover new collections, exclusive offers and jewellery inspiration.</p>
+                <form action="#home"><input type="email" placeholder="Your email address"
+                        aria-label="Email address"><button class="btn" type="submit">Subscribe</button></form>
+            </div>
+        </section>
+
+        <section class="sec" id="about">
+            <div class="wrap ed">
+                <div class="ar"><img class="art b2"
+                        src="https://i.pinimg.com/736x/5d/40/a1/5d40a17e2178477a557d3c2e4fe783ab.jpg" alt="Gold bangle"
+                        loading="lazy"></div>
+                <div><span class="eyebrow">About Lunara</span>
+                    <h2>Where Elegance Meets Emotion</h2>
+                    <p>Lunara was created with a simple belief — jewellery should be more than an accessory. It should
+                        capture moments, express individuality and become part of the stories we carry with us.</p>
+                    <div class="three" style="margin-top:0">
+                        <div>
+                            <h3>Our Story</h3>
+                            <p>Born in a small Kerala atelier, named for the moon.</p>
+                        </div>
+                        <div>
+                            <h3>Our Craft</h3>
+                            <p>Shaped, set and polished by hand.</p>
+                        </div>
+                        <div>
+                            <h3>Our Philosophy</h3>
+                            <p>Fewer pieces, finished better.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="sec alt" id="contact">
+            <div class="wrap contact">
+                <div>
+                    <h2>Get in Touch</h2>
+                    <dl>
+                        <dt>Email</dt>
+                        <dd><a href="mailto:hello@lunara.com">hello@lunara.com</a></dd>
+                        <dt>Phone</dt>
+                        <dd>+91 98765 43210</dd>
+                        <dt>Location</dt><img src="" alt="">
+                        <dd>Kerala, India</dd>
+                        <dt>Opening Hours</dt>
+                        <dd>Monday – Saturday<br>10:00 AM – 7:00 PM</dd>
+                    </dl>
+                </div>
+                <form class="f" action="#contact"><input placeholder="Name" aria-label="Name"><input type="email"
+                        placeholder="Email" aria-label="Email"><textarea rows="6" placeholder="Message"
+                        aria-label="Message"></textarea><button class="btn" type="submit">Send Message</button></form>
+            </div>
+        </section>
+    </main>
+
+    <main class="page sec" id="cart">
+        <div class="wrap">
+            <div class="c sh"><span class="eyebrow">LUNARA</span>
+                <h2>Your Shopping Bag</h2>
+            </div>
+            <div id="cart-body"></div>
+        </div>
+    </main>
+    <main class="page sec" id="wishlist">
+        <div class="wrap">
+            <div class="c sh"><span class="eyebrow">LUNARA</span>
+                <h2>Your Wishlist</h2>
+            </div>
+            <div id="wish-body"></div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="wrap">
+            <div class="fg">
+                <div>
+                    <div class="logo">LUNARA</div>
+                    <p>Timeless Beauty, Made to Shine.</p>
+                    <div class="soc" style="margin-top:18px"><a href="#home" aria-label="Instagram">IG</a><a
+                            href="#home" aria-label="Facebook">FB</a><a href="#home" aria-label="Pinterest">PN</a></div>
+                </div>
+                <div>
+                    <h4>Shop</h4><a href="#collections">Rings</a><a href="#collections">Necklaces</a><a
+                        href="#collections">Earrings</a><a href="#collections">Bracelets</a><a
+                        href="#collections">Jewellery Sets</a>
+                </div>
+                <div>
+                    <h4>Information</h4><a href="#about">About Us</a><a href="#contact">Contact</a><a
+                        href="#contact">Shipping</a><a href="#contact">Returns</a><a href="#contact">Privacy Policy</a>
+                </div>
+                <div>
+                    <h4>Follow Us</h4>
+                    <p>Instagram · Facebook · Pinterest</p>
+                    <p style="margin-top:12px">hello@lunara.com<br>+91 98765 43210</p>
+                </div>
+            </div>
+            <div class="copy">© 2026 LUNARA Jewellery. All Rights Reserved.</div>
+        </div>
+    </footer>
+    <div id="toast"></div>
+
+    <script>
+        const P = "https://i.pinimg.com/";
+        const NEW = [
+            ["n0", "1200x/52/a9/87/52a9879756076c6f13fce9cca3a3c84c.jpg", "", "Rings", "Celeste Gold Ring", 12999, "4.8 (124)"],
+            ["n1", "736x/88/44/ab/8844ab43f07b4ff5daea7c3efa88334d.jpg", "b1", "Necklaces", "Luna Pearl Necklace", 18999, "4.9 (167)"],
+            ["n2", "1200x/5e/34/6a/5e346a86e25c7cfecf0c3ee40b738ea0.jpg", "b2", "Earrings", "Aurora Diamond Earrings", 24999, "4.8 (109)"],
+            ["n3", "1200x/72/50/eb/7250eb0ea9e6efcff9ae0618d2ed0e9d.jpg", "", "Bracelets", "Elara Gold Bracelet", 9499, "4.8 (134)"],
+            ["n4", "1200x/bc/08/34/bc0834da8510e2aa8f9a67e6eee562ad.jpg", "b2", "Necklaces", "Solara Pendant", 7999, "4.7 (143)"],
+            ["n5", "736x/a2/99/8e/a2998e37a71e31ad4555d039630fd4da.jpg", "b1", "Jewellery Sets", "Moonlight Pearl Set", 24999, "4.9 (152)"],
+            ["n6", "736x/47/2d/ad/472dad25eab6b55761d3da4eead69576.jpg", "", "Rings", "Aurelia Statement Ring", 15999, "4.7 (86)"],
+            ["n7", "736x/5d/40/a1/5d40a17e2178477a557d3c2e4fe783ab.jpg", "b1", "Bangles", "Velvet Gold Bangle", 18999, "4.8 (121)"]];
+        const BEST = [
+            ["b0", "736x/ff/ba/6a/ffba6a8d2583773905ef336f0d571e89.jpg", "b1", "Earrings", "Celeste Pearl Earrings", 9499, "4.7 (88)"],
+            ["b1", "736x/48/7a/59/487a598581d7bffe9a1c8cf7335ba589.jpg", "", "Necklaces", "Luna Diamond Pendant", 15999, "4.8 (76)"],
+            ["b2", "1200x/c5/93/ee/c593ee0808d2cff0986b550e7ae8cff4.jpg", "b2", "Rings", "Eclipse Solitaire Ring", 24999, "4.9 (58)"],
+            ["b3", "736x/8c/a5/62/8ca562e4a6deca52f289ce36d61002b0.jpg", "b2", "Bangles", "Heirloom Gold Kada", 18999, "4.7 (64)"],
+            ["b4", "1200x/7d/b1/01/7db10162ef04206c338c42ba2d14094f.jpg", "", "Earrings", "Selene Hoop Earrings", 7999, "4.7 (178)"],
+            ["b5", "736x/fb/2e/22/fb2e22187da57ec852a68f96abbc1092.jpg", "b1", "Jewellery Sets", "Noor Everyday Set", 12999, "4.6 (118)"]];
+        const CATS = [["Rings", "1200x/52/a9/87/52a9879756076c6f13fce9cca3a3c84c.jpg", "", "Elegant rings designed for every occasion."],
+        ["Necklaces", "736x/88/44/ab/8844ab43f07b4ff5daea7c3efa88334d.jpg", "b1", "Timeless necklaces with refined details."],
+        ["Earrings", "1200x/5e/34/6a/5e346a86e25c7cfecf0c3ee40b738ea0.jpg", "b2", "Delicate pieces that add effortless elegance."],
+        ["Bracelets", "1200x/72/50/eb/7250eb0ea9e6efcff9ae0618d2ed0e9d.jpg", "b1", "Minimal designs with a luxurious finish."],
+        ["Bangles", "736x/5d/40/a1/5d40a17e2178477a557d3c2e4fe783ab.jpg", "", "Classic silhouettes with a modern touch."],
+        ["Jewellery Sets", "736x/a2/99/8e/a2998e37a71e31ad4555d039630fd4da.jpg", "b2", "Complete looks designed to shine together."]];
+        const PRODUCTS = [...NEW, ...BEST].map(a => ({id: a[0], img: P + a[1], cls: a[2], cat: a[3], name: a[4], price: a[5], rate: a[6]}));
+        const byId = id => PRODUCTS.find(p => p.id === id);
+        const $ = s => document.querySelector(s), inr = n => "₹" + n.toLocaleString("en-IN");
+        const esc = s => String(s).replace(/[&<>"]/g, c => ({"&": "&amp;", "<": "&lt;", ">": "&gt;", '"': "&quot;"}[c]));
+
+        /* storage (guarded) */
+        function load(k) {try {return JSON.parse(localStorage.getItem(k)) || []} catch (e) {return []} }
+        function save(k, v) {try {localStorage.setItem(k, JSON.stringify(v))} catch (e) { } }
+        let cart = load("lunara_cart"), wish = load("lunara_wish");
+
+        function card(p) {
+            const on = wish.includes(p.id);
+            return `<article class="card"><div class="ar"><img class="art ${p.cls}" src="${p.img}" alt="${esc(p.name)}" loading="lazy">
+ <button class="heart ${on ? "on" : ""}" data-act="wish" data-id="${p.id}" aria-label="Add to wishlist" aria-pressed="${on}">${on ? "♥" : "♡"}</button></div>
+ <div class="ci"><small>${p.cat}</small><h3>${esc(p.name)}</h3><div class="pr">${inr(p.price)}</div>
+ <div class="stars">★★★★★ <em>${p.rate}</em></div><a class="btn ghost" href="#shop">View Details</a><button class="btn" data-act="add" data-id="${p.id}">Add to Bag</button></div></article>`;
+        }
+        function renderStatic() {
+            $("#g-new").innerHTML = NEW.map(a => card(byId(a[0]))).join("");
+            $("#g-best").innerHTML = BEST.map(a => card(byId(a[0]))).join("");
+        }
+        $("#cats").innerHTML = CATS.map(c => `<a class="cat" href="#shop" data-cat="${c[0]}"><div class="ar"><img class="art ${c[2]}" src="${P + c[1]}" alt="${c[0]}" loading="lazy"></div><div class="t"><h3>${c[0]}</h3><p>${c[3]}</p><span>Explore Collection</span></div></a>`).join("");
+
+        function badges() {
+            const n = cart.reduce((s, i) => s + i.q, 0);
+            [["#cb", n], ["#wb", wish.length]].forEach(([s, v]) => {const e = $(s); e.textContent = v; e.style.display = v ? "block" : "none"});
+        }
+        function renderCart() {
+            const b = $("#cart-body");
+            if (!cart.length) {b.innerHTML = `<div class="empty"><h3>Your bag is empty</h3><p>Discover pieces made to shine with you.</p><a class="btn" href="#shop">Continue Shopping</a></div>`; return }
+            const sub = cart.reduce((s, i) => s + byId(i.id).price * i.q, 0), cnt = cart.reduce((s, i) => s + i.q, 0);
+            b.innerHTML = `<div class="cl"><div>` + cart.map(i => {
+                const p = byId(i.id); return `<div class="ci2"><div class="ar"><img class="art ${p.cls}" src="${p.img}" alt="${esc(p.name)}"></div>
+ <div><small>${p.cat}</small><h3>${esc(p.name)}</h3><div>${inr(p.price)}</div><div class="qty"><button data-act="dec" data-id="${p.id}" aria-label="Decrease">−</button><b>${i.q}</b><button data-act="inc" data-id="${p.id}" aria-label="Increase">+</button></div><br><button class="rm" data-act="rm" data-id="${p.id}">Remove</button></div>
+ <div class="lt">${inr(p.price * i.q)}</div></div>`
+            }).join("") +
+                `</div><aside class="sum"><h3>Order Summary</h3><div><span>Items (${cnt})</span><span>${inr(sub)}</span></div><div><span>Shipping</span><span>Free</span></div><div class="tot"><span>Total</span><span>${inr(sub)}</span></div><button class="btn" data-act="checkout">Checkout</button><p>Complimentary shipping on every order.</p></aside></div>`;
+        }
+        function renderWish() {
+            const b = $("#wish-body");
+            if (!wish.length) {b.innerHTML = `<div class="empty"><h3>Your wishlist is empty</h3><p>Tap the heart on any piece to save it here.</p><a class="btn" href="#shop">Explore New Arrivals</a></div>`; return }
+            b.innerHTML = `<div class="grid">` + wish.map(id => card(byId(id))).join("") + `</div>`;
+        }
+        function toast(m) {const t = $("#toast"); t.textContent = m; t.classList.add("show"); clearTimeout(toast.t); toast.t = setTimeout(() => t.classList.remove("show"), 1800)}
+        function refresh() {renderStatic(); renderCart(); renderWish(); badges(); if ($("#sp").classList.contains("open")) search()}
+
+        document.addEventListener("click", e => {
+            const cat = e.target.closest("[data-cat]");
+            if (cat) {$("#si").value = cat.dataset.cat; openSearch(); search(); e.preventDefault(); return }
+            const b = e.target.closest("[data-act]"); if (!b) return;
+            const id = b.dataset.id, act = b.dataset.act, it = cart.find(i => i.id === id);
+            if (act === "wish") {const i = wish.indexOf(id); if (i > -1) {wish.splice(i, 1); toast("Removed from wishlist")} else {wish.push(id); toast("Added to wishlist")} save("lunara_wish", wish)}
+            else if (act === "add") {it ? it.q++ : cart.push({id, q: 1}); if (location.hash === "#wishlist") { } toast("Added to bag"); save("lunara_cart", cart)}
+            else if (act === "inc") {it.q++; save("lunara_cart", cart)}
+            else if (act === "dec") {it.q--; if (it.q < 1) cart = cart.filter(i => i.id !== id); save("lunara_cart", cart)}
+            else if (act === "rm") {cart = cart.filter(i => i.id !== id); save("lunara_cart", cart)}
+            else if (act === "checkout") {cart = []; save("lunara_cart", cart); toast("Thank you — your order is placed")}
+            refresh();
+        });
+
+        /* search */
+        function openSearch() {$("#sp").classList.add("open"); $("#si").focus()}
+        function closeSearch() {$("#sp").classList.remove("open")}
+        function search() {
+            const q = $("#si").value.trim().toLowerCase(), r = $("#sr");
+            if (!q) {r.innerHTML = ""; return }
+            const hits = PRODUCTS.filter(p => (p.name + " " + p.cat).toLowerCase().includes(q));
+            r.innerHTML = hits.length ? `<div class="grid">${hits.map(card).join("")}</div>` : `<p class="note">No pieces found for “${esc(q)}”. Try rings, pearl or gold.</p>`;
+        }
+        $("#sbtn").addEventListener("click", e => {e.preventDefault(); $("#sp").classList.contains("open") ? closeSearch() : openSearch()});
+        $("#sx").addEventListener("click", () => {closeSearch(); $("#si").value = ""; $("#sr").innerHTML = ""});
+        $("#si").addEventListener("input", search);
+        document.addEventListener("keydown", e => {if (e.key === "Escape") closeSearch()});
+
+        /* page routing */
+        function route() {
+            const h = location.hash.slice(1), pg = h === "cart" || h === "wishlist";
+            $("#main").style.display = pg ? "none" : "";
+            ["cart", "wishlist"].forEach(id => $("#" + id).style.display = (h === id) ? "block" : "none");
+            $("#mn").checked = false;
+            if (pg) window.scrollTo(0, 0);
+            else if (h && h !== "search") {const el = document.getElementById(h); if (el) setTimeout(() => el.scrollIntoView(), 0)}
+            else if (!h) window.scrollTo(0, 0);
+            if (h !== "search") closeSearch();
+        }
+        addEventListener("hashchange", route);
+        refresh(); route();
+    </script>
+</body>
+
+</html>
